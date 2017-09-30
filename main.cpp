@@ -5,10 +5,10 @@ using namespace std;
 vector<string>sett[1000];
 string Universe[1000];
 int no;
-    int Universe_size=0;
+int Universe_size=0;
 void Union()
 {
-    cout<<"Enter The Id Of The sets\n";
+    cout<<"Enter the ID of the sets\n";
     int A,B,u;
     cin>>A>>B;
     u=sett[A].size();
@@ -37,15 +37,17 @@ void Union()
             u++;
         }
     }
+    cout << "answer : { ";
     for(int i=0; i<u; i++)
     {
-        cout<<output[i]<<" ";
+        cout<<output[i];
+        if(i!=u-1)  cout << ", ";
     }
-    cout<<"\n";
+    cout<<" }\n";
 }
 void Intersection()
 {
-    cout<<"Enter The Id Of The sets\n";
+    cout<<"Enter the ID of the Sets\n";
     int A,B;
     cin>>A>>B;
     string output[10000];
@@ -63,17 +65,19 @@ void Intersection()
             }
         }
     }
+        cout << "answer : { ";
     for(int i=0; i<u; i++)
     {
-        cout<<output[i]<<" ";
+        cout<<output[i];
+        if(i!=u-1)  cout << ", ";
 
     }
-    cout<<"\n";
+    cout<<" }\n";
 
 }
-void Difference()
+/*void Difference()
 {
-    cout<<"Enter The Id Of The sets\n";
+    cout<<"Enter the ID of the Sets\n";
     int A,B;
     cin>>A>>B;
     pair< string,bool> output[10000];
@@ -100,19 +104,20 @@ void Difference()
         }
 
     }
-
+    cout << "answer : { ";
     for(int i=0; i<u; i++)
     {
         if(output[i].second)
-            cout<<output[i].first<<" ";
+            cout<<output[i].first;
+            if(i!=u-1)  cout << ", ";
     }
-    cout<<"\n";
+    cout<<" }\n";
 
-}
+}*/
 void complement()
 {
 
-    cout<<"Enter The Id Of The set\n";
+    cout<<"Enter the ID of the Sset\n";
     int A;
     cin>>A;
     string output[10000];
@@ -142,11 +147,13 @@ void complement()
         }
 
     }
+        cout << "answer : { ";
     for(int i=0; i<u; i++)
     {
-        cout<<output[i]<<" ";
+        cout<<output[i];
+        if(i!=u-1)  cout << ", ";
     }
-    cout<<"\n";
+    cout<<" }\n";
 
 
 
@@ -154,21 +161,22 @@ void complement()
 }
 int main()
 {
-    cout<<"Please Enter The Number Of Elements Of Universe\n";
-    cin>>Universe_size;
+    cout << ":: Set Operations Simulator ::\n\n";
+    cout << "Please enter the number of elements of Universe\n";
+    cin >> Universe_size;
 
-    cout<<"Please Enter The Universe\n";
+    cout << "Please enter the Universe elements separated by a space ( elements are " << Universe_size << " )\n";
     for(int i=0; i<Universe_size; i++)
-        cin>>Universe[i];
-    cout<<"Please Enter The Number Of Sets\n";
+        cin >> Universe[i];
+    cout<<"Please enter the number of sets\n";
     cin>>no;
 
     for(int i=0; i<no; i++)
     {
         int no_elements;
-        cout<<"Please Enter The Number Of Elements\n";
+        cout<<"Please enter the number of elements of Set "<< i+1<<"\n";
         cin>>no_elements;
-        cout<<"Please Enter The Elements\n";
+        cout<<"Please enter the elements of Set "<< i+1<<" separated by a space ( elements are " << no_elements << " )\n";
 
         for(int j=0; j<no_elements; j++)
         {
@@ -179,7 +187,8 @@ int main()
     }
     while(1)
     {
-        cout<<"1-Union\n2-Intersection\n3-Difference\n4-Complement\nEnter Your Choice\n";
+        cout << "------------------------------\n"<< endl;
+        cout<<"1- Union\n2- Intersection\n3- Complement\nEnter Your Choice\n";
         int choice;
         cin>>choice;
         if(choice==1)
@@ -192,12 +201,7 @@ int main()
         }
         else if(choice==3)
         {
-            Difference();
-        }
-        else if(choice==4)
-        {
             complement();
         }
-
     }
 }
