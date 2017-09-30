@@ -5,6 +5,7 @@ using namespace std;
 vector<string>sett[1000];
 string Universe[1000];
 int no;
+    int Universe_size=0;
 void Union()
 {
     cout<<"Enter The Id Of The sets\n";
@@ -47,7 +48,6 @@ void Intersection()
     cout<<"Enter The Id Of The sets\n";
     int A,B;
     cin>>A>>B;
-
     string output[10000];
     int u=0;
     for(int i=0; i<sett[B].size(); i++)
@@ -116,16 +116,16 @@ void complement()
     int A;
     cin>>A;
     string output[10000];
-    int u=sett[A].size();
-    for(int i=0; i<sett[A].size(); i++)
-        output[i]=sett[A][i];
-   /* for(int i=0; i<sett[B].size(); i++)
+    int u=0;
+
+    for(int i=0; i<Universe_size; i++)
     {
-        string word=sett[B][i];
+
+        string word=Universe[i];
         int flag=0;
-        for(int j=0; j<u; j++)
+        for(int z=0; z<sett[A].size(); z++)
         {
-            if(output[j]==word)
+            if(sett[A][z]==word)
             {
                 flag=1;
                 break;
@@ -140,6 +140,7 @@ void complement()
 
             u++;
         }
+
     }
     for(int i=0; i<u; i++)
     {
@@ -147,18 +148,17 @@ void complement()
     }
     cout<<"\n";
 
-*/
+
 
 
 }
 int main()
 {
     cout<<"Please Enter The Number Of Elements Of Universe\n";
-    int x;
-    cin>>x;
+    cin>>Universe_size;
 
     cout<<"Please Enter The Universe\n";
-    for(int i=0; i<x; i++)
+    for(int i=0; i<Universe_size; i++)
         cin>>Universe[i];
     cout<<"Please Enter The Number Of Sets\n";
     cin>>no;
